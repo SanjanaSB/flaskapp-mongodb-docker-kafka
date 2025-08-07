@@ -1,0 +1,47 @@
+{
+    "tableName": "weather_schema_kafka",
+    "tableType": "REALTIME",
+    "segmentsConfig": {
+      "schemaName": "weather_schema_kafka",
+      "segmentPushType": "APPEND",
+      "segmentAssignmentStrategy": "BalanceNumSegmentAssignmentStrategy",
+      "timeColumnName": "time",
+      "timeType": "MINUTES",
+      "replication": "2",
+      "retentionTimeUnit": "DAYS",
+      "retentionTimeValue": "365",
+      "segmentPushFrequency": "DAILY"
+    },
+    "tableIndexConfig": {
+      "loadMode": "MMAP"
+    },
+   "metadata": {},
+    "tenants": {},
+    "ingestionConfig": {
+        "streamIngestionConfig": {
+            "streamConfigMaps": [
+              {
+                "realtime.segment.flush.threshold.rows": "0",
+                "stream.kafka.decoder.prop.format": "JSON",
+                "key.serializer": "org.apache.kafka.common.serialization.ByteArraySerializer",
+                "stream.kafka.decoder.class.name": "org.apache.pinot.plugin.stream.kafka.KafkaJSONMessageDecoder",
+                "streamType": "kafka",
+                "value.serializer": "org.apache.kafka.common.serialization.ByteArraySerializer",
+                "stream.kafka.consumer.type": "LOWLEVEL",
+                "realtime.segment.flush.threshold.segment.rows": "50000",
+                "stream.kafka.broker.list": "kafka:9092",
+                "realtime.segment.flush.threshold.time": "3600000",
+                "stream.kafka.consumer.factory.class.name": "org.apache.pinot.plugin.stream.kafka20.KafkaConsumerFactory",
+                "stream.kafka.consumer.prop.auto.offset.reset": "latest",
+                "stream.kafka.topic.name": "weather-api"
+              }
+            ]
+          },
+          "transformConfigs": [],
+          "continueOnError": true,
+          "rowTimeValueCheck": true,
+          "segmentTimeValueCheck": false
+        },
+        "isDimTable": false
+  }
+  

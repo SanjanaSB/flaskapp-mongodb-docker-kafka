@@ -1,0 +1,49 @@
+{
+    "schemaName": "weather_schema_kafka",
+    "dimensionFieldSpecs": [
+      {
+        "name": "timezone",
+        "dataType": "STRING"
+      },
+      {
+        "name": "timezone_abbreviation",
+        "dataType": "STRING"
+      },
+      {
+        "name": "utc_offset_seconds",
+        "dataType": "INT"
+      }
+    ],
+    "metricFieldSpecs": [
+      {
+        "name": "temperature_2m",
+        "dataType": "DOUBLE"
+      },
+      {
+        "name": "wind_speed_10m",
+        "dataType": "DOUBLE"
+      },
+      {
+        "name": "elevation",
+        "dataType": "DOUBLE"
+      },
+      {
+        "name": "latitude",
+        "dataType": "DOUBLE"
+      },
+      {
+        "name": "longitude",
+        "dataType": "DOUBLE"
+      }
+    ],
+    "dateTimeFieldSpecs": [
+      {
+        "name": "time",
+        "dataType": "STRING",
+        "format": "SIMPLE_DATE_FORMAT|yyyy-MM-dd'T'HH:mm",
+        "granularity": "15:MINUTES"
+      }
+    ]
+  
+  }
+  

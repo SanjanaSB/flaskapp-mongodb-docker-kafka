@@ -1,0 +1,33 @@
+{
+  "tableName": "weather_schema",
+  "tableType": "OFFLINE",
+  "segmentsConfig": {
+    "schemaName": "weather_schema",
+    "segmentPushType": "APPEND",
+    "segmentAssignmentStrategy": "BalanceNumSegmentAssignmentStrategy",
+    "timeColumnName": "time",
+    "timeType": "MINUTES",
+    "replication": "2",
+    "retentionTimeUnit": "DAYS",
+    "retentionTimeValue": "365",
+    "segmentPushFrequency": "DAILY"
+  },
+  "tableIndexConfig": {
+    "invertedIndexColumns": ["timezone", "timezone_abbreviation"],
+    "rangeIndexColumns": ["latitude", "longitude"],
+    "bloomFilterColumns": ["time", "temperature_2m", "wind_speed_10m"],
+    "loadMode": "MMAP",
+    "columnMinMaxValueGeneratorMode": null,
+    "nullHandlingEnabled": false
+  },
+  "metadata": {
+    "customConfigs": {
+      "key1": "value1",
+      "key2": "value2"
+    }
+  },
+  "tenants": {
+    "broker": "DefaultTenant",
+    "server": "DefaultTenant"
+  }
+}
