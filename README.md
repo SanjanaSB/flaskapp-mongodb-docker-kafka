@@ -1,0 +1,1 @@
+This project is a microservice-based Flask application that uses MongoDB for data storage, Kafka for real-time messaging, and Docker for containerized deployment. It demonstrates seamless integration of backend services in a scalable environment.
